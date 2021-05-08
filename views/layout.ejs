@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+	<title>Puzzle Thing</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+	<div id="nav">
+		<div class="col-sm nav-align">
+			<h1 id="title">Puzzle</h1>
+		</div>
+
+		<div class="login">
+			<% if (loggedIn) { %>
+			<p>Logged in as
+				<a href="<%=`/users/${currentUser._id}`%>">
+					<%= currentUser.username %></a>
+				<span class="log-out">
+					<a href="/logout">Log out</a>
+				</span>
+			</p>
+			<%} else {%>
+			<a href="/login">Log In</a><a href="/register">Register</a>
+			<% } %>
+		</div>
+	</div>
+	<div class="flashes">
+		<% if (flash) { %>
+			<% if (flash.success) { %>
+			<div class="flash success">
+				<%= flash.success %>
+			</div>
+			<% } else if (flash.error) { %>
+			<div class="flash error">
+				<%= flash.error %>
+			</div>
+			<% } %>
+		<% } %>
+	</div>
+
+	<div class="container">
+		<%- body %>
+	</div>
+
+</body>
+
+</html>
