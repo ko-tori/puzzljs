@@ -1,0 +1,58 @@
+#dropzone {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+  width: 100%;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #f4f4f4;
+  border: 2px dashed #ccc;
+  transition: all .2s;
+}
+
+#dropzone span {
+  line-height: 1.5em;
+}
+
+.is-dragover {
+  border-radius: 15px;
+  border-color: #bbb !important;
+  background: #f6f6f6 !important;
+}
+
+#uploadinput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#uploadinputlabel {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: background 0.5s;
+}
+
+#uploadinputlabel:hover {
+  background-color: #ddd;
+  cursor:pointer;
+}
+
+#formend {
+  display: none;
+}
+
+#preview {
+  margin: 1em 0em;
+  width: 50%;
+}
+
+#dimchoices input {
+  margin-left: 1.5em;
+}
+
+#formend input {
+  display: inline-block;
+}

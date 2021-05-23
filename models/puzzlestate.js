@@ -1,24 +1,37 @@
 const mongoose = require('mongoose'),
   { Schema } = require('mongoose');
 
-
 var puzzleStateSchema = new Schema({
   pieces: [{
-    srcLocation: {
-      x: Number,
-      y: Number
-    },
-    roomLocation: {
-      x: Number,
-      y: Number
-    },
+    curX: Number,
+    curY: Number,
+    mapX: Number,
+    mapY: Number,
+    srcX: Number,
+    srcY: Number,
     width: Number,
     height: Number
   }],
-  // widthPx: Number,
-  // heightPx: Number,
-  widthPieces: Number,
-  heightPieces: Number
+  srcImg: String,
+  mapImg: String,
+  params: Object
 });
 
-module.exports = mongoose.model('PuzzleState', puzzleStateSchema);
+puzzleStateSchema.methods.toJSON = function() {
+  return {
+    pieces: [{
+      curX: this.curX,
+      curY: this.curY,
+      mapX: this.mapX,
+      mapY: this.mapY,
+      srcX: this.srcX,
+      srcY: this.srcY,
+      width: this.width,
+      height: this.height
+    }],
+    img: this.srcImg.split('/').slice(-1)[0],
+    params: this.params
+  };
+};
+
+module.exports = puzzleStateSchema;

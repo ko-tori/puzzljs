@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="createRoom.css">
+<form action='/createRoom' enctype="multipart/form-data" method='POST'>
+  <div id='dropzone'>
+    <span>Drop image or
+    <input name='imageUpload' type='file' id='uploadinput'>
+    <label for='uploadinput' id='uploadinputlabel'>Browse files...</label></span>
+  </div>
+  <div id='formend'>
+    <img id='preview'>
+    <div id='dimchoices'></div>
+    <div>Or input your own:
+      <input id='widthinput' type="number" name="w" min=2>&times;<input id='heightinput' type="number" name="h" min=2>
+    <br /><button class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button>
+  </div>
+</form>
+
+<script type="text/javascript" src="createRoom.js"></script>

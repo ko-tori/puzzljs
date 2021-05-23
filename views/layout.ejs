@@ -6,20 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
 	<title>Puzzle Thing</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/main.css">
+	<script src="https://cdn.socket.io/4.1.1/socket.io.min.js" integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/main.js"></script>
 </head>
 
 <body>
 	<div id="nav">
-		<div class="col-sm nav-align">
-			<h1 id="title">Puzzle</h1>
-		</div>
+		<h1 id="title"><a href='/'>Puzzle</a></h1>
 
 		<div class="login">
 			<% if (loggedIn) { %>
 			<p>Logged in as
-				<a href="<%=`/users/${currentUser._id}`%>">
-					<%= currentUser.username %></a>
+				<a href="<%=`/u/${user._id}`%>">
+					<%= user.username %></a>
 				<span class="log-out">
 					<a href="/logout">Log out</a>
 				</span>
@@ -42,7 +43,7 @@
 			<% } %>
 		<% } %>
 	</div>
-
+<hr>
 	<div class="container">
 		<%- body %>
 	</div>

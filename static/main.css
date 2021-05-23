@@ -1,0 +1,56 @@
+.login {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1em;
+}
+
+.login a {
+  padding: 0.5em;
+  margin: 0.2em;
+  text-decoration: none;
+  border-radius: .25em;
+  background-color: #DDD;
+  font-weight: bold;
+  color: #666;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login a:hover {
+  background-color: #EEE;
+  color: #333;
+}
+
+#title {
+  margin: 0.5em;
+}
+
+#title a {
+  text-decoration: none;
+  color: #000;
+}
+
+input {
+  display: block;
+}
+
+.flashes {
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+}
+
+.flash { 
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.success {
+  background-color: #9fb;
+}
+
+.error {
+  background-color: #f99;
+}

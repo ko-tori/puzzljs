@@ -4,8 +4,12 @@ var User = require('../models/user');
 var passport = require('passport');
 const { check, validationResult } = require('express-validator');
 
-router.get('/', function (req, res) {
-  res.render('home');
+router.get('/', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('homeUser');
+  } else {
+    res.render('home');
+  }
 });
 
 router.get('/register', (req, res) => {
@@ -52,5 +56,11 @@ router.get('/logout', (req, res, next) => {
   req.flash('success', 'You have been logged out!');
   res.redirect('/');
 });
+
+router.get('/flash/:status', (req, res) => {
+  let flash = {};
+  flash[req.params.status] = 'testing flash!';
+  res.render('home', { flash });
+})
 
 module.exports = router;

@@ -1,0 +1,10 @@
+<h4><%= profileUser.username %>'s Profile</h4>
+
+<% if (profileUser.username == user.username) { %>
+  This is you!
+
+  <h6>Your rooms:</h6>
+  <% for (let r of rooms) { %>
+    <p><a href="/r/<%= r._id%>"><%= r.roomName %></a></p>
+  <% } %>
+<% } %>

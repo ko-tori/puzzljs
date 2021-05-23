@@ -15,4 +15,11 @@ userSchema.plugin(passportLocalMongoose, {
   usernameField: 'username'
 });
 
+userSchema.methods.toJSON = function() {
+  return {
+    username: this.username,
+    stats: this.stats
+  };
+};
+
 module.exports = mongoose.model('User', userSchema);
